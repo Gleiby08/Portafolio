@@ -1,0 +1,6 @@
+# Permitir a todos los bots rastrear todo el sitio.
+User-agent: *
+Allow: /
+
+# Especificar la ubicación del sitemap (reemplaza con tu dominio real).
+Sitemap: https://www.gleibybarreto.dev/sitemap.xml

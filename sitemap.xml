@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.gleibybarreto.dev/</loc>
+    <lastmod>2024-05-21</lastmod> <!-- Actualizado a la fecha de la última modificación -->
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://www.gleibybarreto.dev/#sobre-mi</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.gleibybarreto.dev/#habilidades</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.gleibybarreto.dev/#proyectos</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.gleibybarreto.dev/#contacto</loc>
+    <priority>0.80</priority>
+  </url>
+</urlset>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Portafolio de Gleiby Barreto, un desarrollador frontend apasionado por crear experiencias web modernas y responsivas.">
+    <meta name="keywords" content="desarrollador frontend, desarrollador web, portafolio, Gleiby Barreto, HTML, CSS, JavaScript, responsive design">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Gleiby Barreto - Desarrollador Frontend</title>
+
+    <!-- URL Canónica -->
+    <link rel="canonical" href="https://www.gleibybarreto.dev/">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Open Graph (para Facebook, LinkedIn, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gleibybarreto.dev/">
+    <meta property="og:title" content="Portafolio | Gleiby Barreto - Desarrollador Frontend">
+    <meta property="og:description" content="Portafolio de Gleiby Barreto, un desarrollador frontend apasionado por crear experiencias web modernas y responsivas.">
+    <meta property="og:image" content="https://www.gleibybarreto.dev/og-image.png"> <!-- URL a una imagen de 1200x630px -->
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.gleibybarreto.dev/">
+    <meta name="twitter:title" content="Portafolio | Gleiby Barreto - Desarrollador Frontend">
+    <meta name="twitter:description" content="Portafolio de Gleiby Barreto, un desarrollador frontend apasionado por crear experiencias web modernas y responsivas.">
+    <meta name="twitter:image" content="https://www.gleibybarreto.dev/og-image.png">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gleiby Barreto",
+      "url": "https://www.gleibybarreto.dev",
+      "image": "https://www.gleibybarreto.dev/foto-profesional.jpg",
+      "sameAs": [
+        "https://github.com/Gleiby08",
+        "https://linkedin.com/in/Gleiby08"
+      ],
+      "jobTitle": "Desarrollador Frontend"
+    }
+    </script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="dark-mode">
+    <!-- Barra de navegación superior -->
+    <header class="main-header" id="main-header">
+        <div class="container header-container">
+            <a href="#inicio" class="logo">GB</a>
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item"><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li class="nav-item"><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+                    <li class="nav-item"><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                    <li class="nav-item"><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li class="nav-item"><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                    <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="hamburger" 
+                        aria-label="Abrir menú de navegación" 
+                        aria-controls="nav-menu" 
+                        aria-expanded="false">
+                    <div class="hamburger-icon" style="width: 30px; height: 30px; background-color: currentColor; -webkit-mask-image: var(--icon-hamburger); mask-image: var(--icon-hamburger);"></div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal de la página -->
+    <main class="main-content">
+    <!-- Aquí comienzan las secciones de tu página -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="reveal-mask">
+                    <h1 class="hero-title">Hola, soy <span class="primary-text">Gleiby Barreto</span></h1>
+                </div>
+                <div class="reveal-mask">
+                    <h2 class="hero-subtitle" id="typewriter-subtitle"></h2>
+                </div>
+                <div class="reveal-mask">
+                    <p class="hero-description">
+                        Creo experiencias web modernas y responsivas utilizando las últimas tecnologías. 
+                        Mi pasión es transformar ideas en interfaces elegantes y funcionales.
+                    </p>
+                </div>
+                <div class="reveal-mask"><a href="#proyectos" class="btn">Ver Proyectos</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-mi">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Sobre Mí</h2>
+            <div class="about-content animate-on-scroll">
+                <div class="about-text">
+                    <p>
+                        Soy un desarrollador frontend apasionado por crear experiencias digitales excepcionales. 
+                        Con experiencia en HTML5, CSS3 y JavaScript, me especializo en construir interfaces 
+                        de usuario intuitivas y responsivas que ofrecen una excelente experiencia al usuario.
+                    </p>
+                    <p>
+                        Mi enfoque combina creatividad con funcionalidad, asegurando que cada proyecto no solo 
+                        se vea bien sino que también sea accesible y eficiente. Estoy constantemente aprendiendo 
+                        nuevas tecnologías y mejorando mis habilidades para mantenerme actualizado en el rápido 
+                        mundo del desarrollo web.
+                    </p>
+                    <p>
+                        Cuando no estoy codificando, disfruto de la fotografía, el senderismo y explorar nuevas 
+                        tendencias en diseño y tecnología.
+                    </p>
+                    <div class="about-buttons">
+                        
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- La URL anterior era un enlace de búsqueda de Google. Reemplázala con la URL directa a tu imagen. -->
+                    <img src="assets/images/foto.jpg" 
+                        alt="Retrato profesional de Gleiby Barreto" 
+                        width="400" height="500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item animate-on-scroll">
+                    <h3 class="stat-number" data-target="15">0</h3>
+                    <p class="stat-label">Proyectos Completados</p>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <h3 class="stat-number" data-target="1">0</h3>
+                    <p class="stat-label">Años de Experiencia</p>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <h3 class="stat-number" data-target="5">0</h3>
+                    <p class="stat-label">% Clientes Satisfechos</p>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <h3 class="stat-number" data-target="500">0</h3>
+                    <p class="stat-label">+ Commits en GitHub</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Mis Habilidades</h2>
+            <div class="skills-container">
+                <div class="skill-category animate-on-scroll">
+                    <h3 class="skill-title">Frontend</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-name">HTML5</span><span class="skill-percentage">100%</span></div>
+                            <div class="skill-progress-bar"><div class="skill-progress" data-progress="100"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-name">CSS3</span><span class="skill-percentage">100%</span></div>
+                            <div class="skill-progress-bar"><div class="skill-progress" data-progress="100"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-name">JavaScript</span><span class="skill-percentage">100%</span></div>
+                            <div class="skill-progress-bar"><div class="skill-progress" data-progress="100"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-name">Responsive Design</span><span class="skill-percentage">100%</span></div>
+                            <div class="skill-progress-bar"><div class="skill-progress" data-progress="100"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-name">Accesibilidad</span><span class="skill-percentage">100%</span></div>
+                            <div class="skill-progress-bar"><div class="skill-progress" data-progress="100"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-name">Performance</span><span class="skill-percentage">100%</span></div>
+                            <div class="skill-progress-bar"><div class="skill-progress" data-progress="100"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category animate-on-scroll">
+                    <h3 class="skill-title">Herramientas</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-name">Git</span><span class="skill-percentage">90%</span></div>
+                            <div class="skill-progress-bar"><div class="skill-progress" data-progress="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-name">GitHub</span><span class="skill-percentage">85%</span></div>
+                            <div class="skill-progress-bar"><div class="skill-progress" data-progress="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-name">VS Code</span><span class="skill-percentage">100%</span></div>
+                            <div class="skill-progress-bar"><div class="skill-progress" data-progress="100"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-name">NPM</span><span class="skill-percentage">80%</span></div>
+                            <div class="skill-progress-bar"><div class="skill-progress" data-progress="80"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Mis Servicios</h2>
+            <div class="services-grid">
+                <!-- Tarjeta de Servicio 1 -->
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon" aria-hidden="true">
+                        <svg class="icon-pen-tool" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="50" height="50">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Diseño Web Moderno</h3>
+                    <p class="service-description">Creación de interfaces de usuario atractivas, intuitivas y centradas en la experiencia del usuario, desde el concepto inicial hasta el diseño final en Figma.</p>
+                </div>
+                <!-- Tarjeta de Servicio 2 -->
+                <div class="service-card animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="service-icon" aria-hidden="true">
+                        <svg class="icon-code" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="50" height="50">
+                            <path class="bracket-left" stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25" />
+                            <path class="bracket-right" stroke-linecap="round" stroke-linejoin="round" d="M6.75 17.25 1.5 12l5.25-5.25" />
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Desarrollo Frontend</h3>
+                    <p class="service-description">Transformo diseños en sitios web funcionales y responsivos utilizando HTML, CSS y JavaScript, asegurando compatibilidad en todos los navegadores y dispositivos.</p>
+                </div>
+                <!-- Tarjeta de Servicio 3 -->
+                <div class="service-card animate-on-scroll" style="animation-delay: 0.4s;">
+                    <div class="service-icon" aria-hidden="true">
+                        <svg class="icon-bolt" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="50" height="50">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Optimización y Rendimiento</h3>
+                    <p class="service-description">Mejora de la velocidad de carga y el rendimiento de sitios web existentes para garantizar una experiencia de usuario rápida y fluida, mejorando el SEO y la retención.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Mis Proyectos</h2>
+            <div class="project-filters animate-on-scroll">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="webapp">Web App</button>
+                <button class="filter-btn" data-filter="blog">Blog</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                <button class="filter-btn" data-filter="api">API</button>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Nuevo Proyecto: Blog de Baloncesto -->
+                <div class="project-card animate-on-scroll" data-category="blog">
+                    <img src="assets/images/blog.png" 
+                        alt="Página principal de un blog de baloncesto con noticias y artículos"
+                        loading="lazy" 
+                        class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Blog de Baloncesto</h3>
+                        <p class="project-description">
+                            Un blog dedicado a noticias, artículos y análisis sobre el mundo del baloncesto.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">Ver Demo</a>
+                            <a href="#" class="btn btn-secondary">Código</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll" data-category="webapp">
+                    <img src="assets/images/proyecto-dashboard.jpg" 
+                        alt="Dashboard moderno con visualización de datos y diseño limpio"
+                        loading="lazy" 
+                        class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Dashboard Analytics</h3>
+                        <p class="project-description">
+                            Panel de control interactivo con gráficos y métricas en tiempo real.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Chart.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">Ver Demo</a>
+                            <a href="#" class="btn btn-secondary">Código</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll" data-category="ecommerce">
+                    <img src="assets/images/proyecto-ecommerce.jpg" 
+                        alt="Tienda e-commerce moderna con layout de productos atractivo"
+                        loading="lazy" 
+                        class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">E-commerce Store</h3>
+                        <p class="project-description">
+                            Tienda online completa con carrito de compras y proceso de pago.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">LocalStorage</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">Ver Demo</a>
+                            <a href="#" class="btn btn-secondary">Código</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll" data-category="webapp api">
+                    <img src="assets/images/proyecto-weather-app.jpg" 
+                        alt="Aplicación meteorológica con interfaz moderna y datos climáticos"
+                        loading="lazy" 
+                        class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Weather App</h3>
+                        <p class="project-description">
+                            Aplicación meteorológica con pronóstico en tiempo real y búsqueda por ubicación.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">Ver Demo</a>
+                            <a href="#" class="btn btn-secondary">Código</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="load-more-container">
+                <button class="btn" id="load-more-btn">Cargar Más</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Contacto</h2>
+            <div class="contact-container animate-on-scroll">
+                <div class="contact-info">
+                    <h3 class="contact-info-title">Hablemos</h3>
+                    <p class="contact-info-description">
+                        Estoy disponible para nuevos proyectos y colaboraciones. No dudes en contactarme.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon-wrapper">
+                                <!-- Usamos background-image para iconos con color propio -->
+                                <div class="icon" style="background-image: var(--icon-whatsapp); background-color: transparent;"></div>
+                            </div>
+                            <div class="contact-text">
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/584125898964" target="_blank" rel="noopener noreferrer">Enviar mensaje</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon-wrapper">
+                                <!-- Usamos background-image para iconos con color propio -->
+                                <div class="icon" style="background-image: var(--icon-linkedin); background-color: transparent;"></div>
+                            </div>
+                            <div class="contact-text">
+                                <h4>LinkedIn</h4>
+                                <a href="https://linkedin.com/in/Gleiby08" target="_blank" rel="noopener noreferrer">Visitar perfil</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon-wrapper">
+                                <!-- Usamos mask-image para el icono que cambia de color -->
+                                <div class="icon dynamic-icon" style="--icon-url: var(--icon-github);"></div>
+                            </div>
+                            <div class="contact-text">
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/Gleiby08" target="_blank" rel="noopener noreferrer">Ver repositorios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <fieldset class="contact-form-fieldset">
+                    <legend class="sr-only">Formulario de Contacto</legend>
+                    <!-- ¡IMPORTANTE! Reemplaza "YOUR_FORM_ID" con tu ID de formulario real de Formspree -->
+                    <form class="contact-form" id="contact-form" action="https://formspree.io/f/mgvnppga" method="POST" novalidate>
+                        
+                        <p class="form-required-notice">Los campos marcados con <span aria-hidden="true">*</span> son obligatorios.</p>
+
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nombre <span aria-hidden="true">*</span></label>
+                            <input type="text" id="name" name="name" class="form-input" required autocomplete="name" aria-invalid="false" aria-describedby="name-error">
+                            <div id="name-error" class="form-error" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email <span aria-hidden="true">*</span></label>
+                            <input type="email" id="email" name="email" class="form-input" required autocomplete="email" aria-invalid="false" aria-describedby="email-error">
+                            <div id="email-error" class="form-error" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Asunto <span aria-hidden="true">*</span></label>
+                            <input type="text" id="subject" name="subject" class="form-input" required autocomplete="off" aria-invalid="false" aria-describedby="subject-error">
+                            <div id="subject-error" class="form-error" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Mensaje <span aria-hidden="true">*</span></label>
+                            <textarea id="message" name="message" class="form-textarea" required aria-invalid="false" aria-describedby="message-error"></textarea>
+                            <div id="message-error" class="form-error" aria-live="polite"></div>
+                        </div>
+                        <div id="form-status" class="form-status" aria-live="assertive" role="status"></div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </section>
+
+        <footer>
+          
+                <p class="copyright">© 2025 Gleiby Barreto. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </main>
+
+    <a href="#inicio" id="back-to-top-btn" class="back-to-top-btn" title="Volver arriba" aria-label="Volver arriba">
+        <div class="icon" style="width: 24px; height: 24px; background-color: white; -webkit-mask-image: var(--icon-arrow-up); mask-image: var(--icon-arrow-up);"></div>
+    </a>
+
+</body>
+</html>
