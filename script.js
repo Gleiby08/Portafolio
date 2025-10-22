@@ -1,20 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     // -------------------- Lógica del Menú Hamburguesa --------------------
-    const hamburger = document.querySelector('.hamburger');
-    const mainNav = document.getElementById('main-nav');
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
     const navLinks = document.querySelectorAll('.nav-link');
 
     // Toggle para abrir/cerrar el menú en móvil
-    hamburger.addEventListener('click', () => {
-        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-        mainNav.classList.toggle('active');
-        hamburger.setAttribute('aria-expanded', !isExpanded);
-    });
+    if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', () => {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            mobileNav.classList.toggle('translate-y-0');
+            mobileNav.classList.toggle('-translate-y-full');
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+        });
+    }
 
     // Función para cerrar el menú móvil
     const closeMobileMenu = () => {
-        mainNav.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
+        if (mobileNav) {
+            mobileNav.classList.add('-translate-y-full');
+            mobileNav.classList.remove('translate-y-0');
+        }
+        if (hamburger) {
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
     };
 
     // Cerrar menú al hacer clic en un enlace
@@ -28,13 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('main-header');
     const scrollThreshold = 50; // Píxeles a desplazar antes de que se active el efecto
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > scrollThreshold) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > scrollThreshold) {
+                header.classList.add('bg-dark-900/95', 'backdrop-blur-md');
+                header.classList.remove('bg-transparent');
+            } else {
+                header.classList.remove('bg-dark-900/95', 'backdrop-blur-md');
+                header.classList.add('bg-transparent');
+            }
+        });
+    }
 
 
     // -------------------- Lógica de Navegación Activa (ScrollSpy) --------------------
@@ -42,9 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateActiveClass(currentId) {
         navLinks.forEach(navLink => {
-            navLink.classList.remove('active');
+            navLink.classList.remove('text-primary-400');
+            navLink.classList.add('text-dark-300');
             if (navLink.getAttribute('href') === currentId) {
-                navLink.classList.add('active');
+                navLink.classList.remove('text-dark-300');
+                navLink.classList.add('text-primary-400');
             }
         });
     }
@@ -71,9 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
+                entry.target.classList.add('animate-fade-in');
                 // Opcional: dejar de observar el elemento una vez que es visible
-                // para que la animación no se repita al hacer scroll hacia arriba y abajo.
                 observer.unobserve(entry.target);
             }
         });
@@ -91,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectCardsObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
+                entry.target.classList.add('animate-scale-in');
                 observer.unobserve(entry.target);
             }
         });
@@ -105,70 +118,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // -------------------- Formulario de contacto con validación en tiempo real --------------------
     const contactForm = document.getElementById('contact-form');
-    const formInputs = contactForm.querySelectorAll('.form-input, .form-textarea');
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    const formStatus = document.getElementById('form-status');
-
-    const validationRules = {
-        name: {
-            validate: (value) => value.trim() !== '',
-            message: 'Por favor, introduce tu nombre.'
-        },
-        email: {
-            validate: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
-            message: 'Por favor, introduce un email válido.'
-        },
-        subject: {
-            validate: (value) => value.trim() !== '',
-            message: 'Por favor, introduce un asunto.'
-        },
-        message: {
-            validate: (value) => value.trim() !== '',
-            message: 'Por favor, escribe tu mensaje.'
-        }
-    };
-
-    const validateField = (field) => {
-        const rule = validationRules[field.name];
-        const isValid = rule.validate(field.value);
-        const errorContainer = document.getElementById(`${field.id}-error`);
-
-        if (!isValid) {
-            field.classList.add('invalid');
-            field.setAttribute('aria-invalid', 'true');
-            errorContainer.textContent = rule.message;
-        } else {
-            field.classList.remove('invalid');
-            field.setAttribute('aria-invalid', 'false');
-            errorContainer.textContent = '';
-        }
-        return isValid;
-    };
-
-    const validateForm = () => {
-        let isFormValid = true;
-        formInputs.forEach(input => {
-            if (!validateField(input)) {
-                isFormValid = false;
-            }
-        });
-        submitButton.disabled = !isFormValid;
-        return isFormValid;
-    };
-
-    formInputs.forEach(input => {
-        input.addEventListener('input', () => {
-            validateField(input);
-            validateForm(); // Re-evalúa todo el formulario para habilitar/deshabilitar el botón
-        });
-    });
-
     if (contactForm) {
+        const formInputs = contactForm.querySelectorAll('input, textarea');
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const formStatus = document.getElementById('form-status');
+
+        const validationRules = {
+            name: {
+                validate: (value) => value.trim() !== '',
+                message: 'Por favor, introduce tu nombre.'
+            },
+            email: {
+                validate: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+                message: 'Por favor, introduce un email válido.'
+            },
+            subject: {
+                validate: (value) => value.trim() !== '',
+                message: 'Por favor, introduce un asunto.'
+            },
+            message: {
+                validate: (value) => value.trim() !== '',
+                message: 'Por favor, escribe tu mensaje.'
+            }
+        };
+
+        const validateField = (field) => {
+            const rule = validationRules[field.name];
+            const isValid = rule.validate(field.value);
+            const errorContainer = document.getElementById(`${field.id}-error`);
+
+            if (!isValid) {
+                field.classList.add('border-red-500');
+                field.classList.remove('border-dark-600');
+                field.setAttribute('aria-invalid', 'true');
+                if (errorContainer) errorContainer.textContent = rule.message;
+            } else {
+                field.classList.remove('border-red-500');
+                field.classList.add('border-dark-600');
+                field.setAttribute('aria-invalid', 'false');
+                if (errorContainer) errorContainer.textContent = '';
+            }
+            return isValid;
+        };
+
+        const validateForm = () => {
+            let isFormValid = true;
+            formInputs.forEach(input => {
+                if (!validateField(input)) {
+                    isFormValid = false;
+                }
+            });
+            if (submitButton) submitButton.disabled = !isFormValid;
+            return isFormValid;
+        };
+
+        formInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                validateField(input);
+                validateForm(); // Re-evalúa todo el formulario para habilitar/deshabilitar el botón
+            });
+        });
+
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             if (!validateForm()) {
                 // Enfocar el primer campo inválido para guiar al usuario
-                contactForm.querySelector('.invalid')?.focus();
+                contactForm.querySelector('.border-red-500')?.focus();
                 return;
             }
             
@@ -176,9 +191,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const object = Object.fromEntries(formData);
             const json = JSON.stringify(object);
     
-            submitButton.disabled = true;
-            submitButton.textContent = 'Enviando...';
-            formStatus.textContent = 'Enviando su mensaje, por favor espere.';
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Enviando...';
+            }
+            if (formStatus) {
+                formStatus.textContent = 'Enviando su mensaje, por favor espere.';
+                formStatus.className = 'text-blue-400';
+            }
             
             try {
                 // La URL del 'action' del formulario se usa para el envío
@@ -193,25 +213,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     // Formspree responde con 'ok: true' si el envío es exitoso
-                    formStatus.textContent = '¡Gracias! Tu mensaje ha sido enviado correctamente.';
+                    if (formStatus) {
+                        formStatus.textContent = '¡Gracias! Tu mensaje ha sido enviado correctamente.';
+                        formStatus.className = 'text-green-400';
+                    }
                     contactForm.reset();
-                    formInputs.forEach(input => input.classList.remove('invalid'));
+                    formInputs.forEach(input => {
+                        input.classList.remove('border-red-500');
+                        input.classList.add('border-dark-600');
+                    });
                 } else {
                     // Si hay un error, Formspree puede devolver detalles en el JSON
                     const result = await response.json();
                     const errorMessage = result.errors?.map(error => error.message).join(', ') || 'Por favor, inténtelo de nuevo.';
                     console.error('Error al enviar el formulario:', result);
-                    formStatus.textContent = `Hubo un error al enviar el formulario: ${errorMessage}`;
+                    if (formStatus) {
+                        formStatus.textContent = `Hubo un error al enviar el formulario: ${errorMessage}`;
+                        formStatus.className = 'text-red-400';
+                    }
                 }
             } catch (error) {
                 console.error('Error de red:', error);
-                formStatus.textContent = 'Hubo un problema al conectar con el servidor. Por favor, inténtelo de nuevo más tarde.';
-                // alert('Hubo un problema al conectar con el servidor. Inténtalo de nuevo más tarde.');
+                if (formStatus) {
+                    formStatus.textContent = 'Hubo un problema al conectar con el servidor. Por favor, inténtelo de nuevo más tarde.';
+                    formStatus.className = 'text-red-400';
+                }
             } finally {
-                submitButton.disabled = false; // Se re-evaluará con el próximo input
-                submitButton.textContent = 'Enviar Mensaje'; // Restaura el texto del botón
+                if (submitButton) {
+                    submitButton.disabled = false; // Se re-evaluará con el próximo input
+                    submitButton.textContent = 'Enviar Mensaje'; // Restaura el texto del botón
+                }
                 // Limpiar el mensaje de estado después de unos segundos
-                setTimeout(() => { formStatus.textContent = ''; }, 7000);
+                setTimeout(() => { 
+                    if (formStatus) {
+                        formStatus.textContent = '';
+                        formStatus.className = '';
+                    }
+                }, 7000);
             }
         });
     }
@@ -219,14 +257,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------- Lógica del Botón "Volver Arriba" --------------------
     const backToTopButton = document.getElementById('back-to-top-btn');
 
-    window.addEventListener('scroll', () => {
-        // Muestra el botón si el scroll es mayor a 400px
-        if (window.scrollY > 400) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-    });
+    if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+            // Muestra el botón si el scroll es mayor a 400px
+            if (window.scrollY > 400) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+                backToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+    }
 
     // El scroll suave ya está manejado por el listener de 'nav-link'
     // pero nos aseguramos de que el botón también lo active.
@@ -301,9 +343,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // -------------------- Lógica del Filtro y "Cargar Más" de Proyectos --------------------
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const allProjectCards = Array.from(document.querySelectorAll('.projects-grid .project-card'));
+    const allProjectCards = Array.from(document.querySelectorAll('.project-card'));
     const loadMoreBtn = document.getElementById('load-more-btn');
-    const loadMoreContainer = document.querySelector('.load-more-container');
     const projectsToShowInitially = 2; // Muestra 2 proyectos al inicio
     let visibleProjectsCount = 0;
     let currentFilter = 'all';
@@ -314,24 +355,36 @@ document.addEventListener('DOMContentLoaded', () => {
             return currentFilter === 'all' || categories.includes(currentFilter);
         });
 
-        allProjectCards.forEach(card => card.classList.add('hide'));
+        allProjectCards.forEach(card => {
+            card.style.display = 'none';
+            card.classList.remove('animate-scale-in');
+        });
 
         const cardsToShow = filteredCards.slice(0, visibleProjectsCount);
-        cardsToShow.forEach(card => card.classList.remove('hide'));
+        cardsToShow.forEach(card => {
+            card.style.display = 'block';
+            card.classList.add('animate-scale-in');
+        });
 
         // Mostrar u ocultar el botón "Cargar Más"
-        if (visibleProjectsCount >= filteredCards.length) {
-            loadMoreContainer.classList.add('hidden');
-        } else {
-            loadMoreContainer.classList.remove('hidden');
+        if (loadMoreBtn) {
+            if (visibleProjectsCount >= filteredCards.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'inline-block';
+            }
         }
     }
 
     // Evento para los botones de filtro
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
+            filterButtons.forEach(btn => {
+                btn.classList.remove('bg-gradient-to-r', 'from-primary-500', 'to-primary-600', 'text-white');
+                btn.classList.add('bg-dark-800/50', 'text-dark-300', 'border', 'border-dark-700');
+            });
+            button.classList.remove('bg-dark-800/50', 'text-dark-300', 'border', 'border-dark-700');
+            button.classList.add('bg-gradient-to-r', 'from-primary-500', 'to-primary-600', 'text-white');
             
             currentFilter = button.getAttribute('data-filter');
             visibleProjectsCount = projectsToShowInitially; // Resetea el contador al filtrar
@@ -340,10 +393,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Evento para el botón "Cargar Más"
-    loadMoreBtn.addEventListener('click', () => {
-        visibleProjectsCount += projectsToShowInitially;
-        updateProjectVisibility();
-    });
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+            visibleProjectsCount += projectsToShowInitially;
+            updateProjectVisibility();
+        });
+    }
 
     // Carga inicial de proyectos
     visibleProjectsCount = projectsToShowInitially;
@@ -392,7 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const skillsObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const skillProgressBars = entry.target.querySelectorAll('.skill-progress');
+                const skillProgressBars = entry.target.querySelectorAll('[data-progress]');
                 skillProgressBars.forEach(bar => {
                     const progress = bar.getAttribute('data-progress');
                     bar.style.width = `${progress}%`;
@@ -406,5 +461,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Observar cada categoría de habilidad
-    document.querySelectorAll('.skill-category').forEach(category => skillsObserver.observe(category));
+    document.querySelectorAll('.skill-item').forEach(category => skillsObserver.observe(category));
 });
